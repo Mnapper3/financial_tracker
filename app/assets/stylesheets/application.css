@@ -14,3 +14,8 @@
  *= require_tree .
  *= require_self
  */
+ 
+ #nav-logout {
+     margin-top: 25px;
+     text-decoration: none;
+ }
