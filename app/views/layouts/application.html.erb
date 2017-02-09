@@ -47,24 +47,34 @@
         </button>
         <%= link_to "Stock Tracker", root_path, class: "navbar-brand" %>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
-            <li><%= link_to "Stock Search", my_portfolio_path  %></li>
-            <!--<li><%= link_to "Link2", "/path2"  %></li>-->
-            <!--<li><%= link_to "Link3", "/path3"  %></li>-->
-          </ul>
+            <ul class="nav navbar-nav col-md-6">
+          <li><%= link_to "My Portfolio", my_portfolio_path  %></li>
+          <!--<li><%= link_to "My Profile", "#"  %></li>-->
+          <!--<li><%= link_to "My Friends", "#" %></li>-->
+        </ul>
+        <ul class="nav navbar-right col-md-4">
+          <% if user_signed_in? %>
+          <li class="col-md-8 user-name text-right">
+            <i class="fa fa-user"></i>
+            <%= current_user.email %>
+          </li>
+          <% end %>
+          <li class="col-md-4 logout"><%= link_to("logout", destroy_user_session_path, 
+class: "btn btn-xs btn-danger", method: :delete) %></li>
+        </ul>
         </div>
       </div>
     </div>
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-9">
+        <div class="col-lg-12">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
       </div><!--/row-->
 
-      <footer>
+      <footer class="text-center">
         <p>&copy; Company 2017</p>
       </footer>
 
